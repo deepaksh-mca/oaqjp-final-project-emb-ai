@@ -9,4 +9,4 @@ def emotion_detector(text_to_analyze):
     response = requests.post(url, json = myobj, headers = header)
     response_json = response.json()
 
-return return response_json.get("text", "")
+return response_json.get("text", "")
