@@ -17,6 +17,11 @@ def emotionDetector():
         text_to_analyze = request.args.get('textToAnalyze', '')
 
     result = emotion_detector(text_to_analyze)
+
+    # Error handling for blank or invalid input
+    if result.get('dominant_emotion') is None:
+        return jsonify({"error": "Invalid text! Please try again!"})
+
     return jsonify(result)
 
 if __name__ == '__main__':
